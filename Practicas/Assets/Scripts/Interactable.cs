@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Interactable : MonoBehaviour
 {
@@ -13,7 +14,8 @@ public class Interactable : MonoBehaviour
 
     void Update()
     {
-        if(isInsideZone && Input.GetKeyDown(KeyCode.I))
+        //Input.GetKeyDown(KeyCode.I)
+        if(isInsideZone && CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             Interact();
         }

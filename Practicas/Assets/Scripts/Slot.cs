@@ -8,6 +8,7 @@ public class Slot : MonoBehaviour
     public Item item;
     public Image image;
     private Inventory inventory;
+    List<GameObject> objects3D = new List<GameObject>();
     void Start()
     {
         inventory = FindObjectOfType<Inventory>();

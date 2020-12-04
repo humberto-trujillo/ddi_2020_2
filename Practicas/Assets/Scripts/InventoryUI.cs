@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class InventoryUI : MonoBehaviour
 
     void Start()
     {
-        inventory = FindObjectOfType<Inventory>();
+        // inventory = FindObjectOfType<Inventory>();
+        inventory = Inventory.InventoryInstance;
         if (inventory == null)
         {
             return;
@@ -20,7 +22,7 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (CrossPlatformInputManager.GetButtonDown("Fire2"))
         {
             inventoryUIPanel.SetActive(!inventoryUIPanel.activeSelf);
             UpdateUI();

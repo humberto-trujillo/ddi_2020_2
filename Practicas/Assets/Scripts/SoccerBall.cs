@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoccerBall : Interactable
+public class SoccerBall : VoiceInteractable
 {
     Rigidbody rb;
     public Vector3 kickDirection;
@@ -13,11 +13,11 @@ public class SoccerBall : Interactable
         rb = GetComponent<Rigidbody>();
     }
 
-    public override void Interact()
+    public override void VoiceInteract(string action)
     {
-        base.Interact();
+        base.VoiceInteract(action);
         Debug.Log("Pateando pelota...");
-        if (rb != null)
+        if (action == "kick" && rb != null)
         {
             rb.AddForce(kickDirection * kickForce, ForceMode.Force);
         }
